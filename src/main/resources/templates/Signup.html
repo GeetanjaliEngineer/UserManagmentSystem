@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Signup</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style >
+
+body{
+		
+		background: linear-gradient(120deg, #84fab0, #8fd3f4);
+		height : 100vh;
+		display:flex;
+		align-items:center ;
+		justify-content:center;
+		}
+		
+		.card
+		{
+		width: 400px;
+		border-radius: 15px;
+		 box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+		}
+		</style>
+</head>
+<body>
+<div class = "card p-4">
+
+<h3 class ="text-center mb-3">Create Account</h3>
+<p  class =" text-danger text-center" th:text = "${error}"></p>
+<form th:action="@{/Signup}" th:object="${user}" method="post">
+	<div class = "mb-3">
+		<label class =" form-label">Username</label>
+		 <input type= "text" th:field="*{username}" class="form-control" placeholder="Enter username"  required><br>
+	</div>
+	<div class ="mb-3">
+			<label class="form-label">Email</label>
+			 <input type="email"   class ="form-control" placeholder="Enter email" th:field="*{email}" required><br>
+			 </div>
+			 <div class="mb-3">
+			 <label class="form-label">Password</label>
+			 <input  class ="form-control" placeholder="Enter new password" type="password" th:field="*{password}" required><br>
+</div>
+<button type ="submit">Signup</button></form>
+<div class ="text-center mt-3">
+<a href="/login">Already have a account? Login</a> </div>
+</div>
+</body>
+</html>
